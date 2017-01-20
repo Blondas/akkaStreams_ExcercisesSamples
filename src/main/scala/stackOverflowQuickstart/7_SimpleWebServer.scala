@@ -10,7 +10,7 @@ import akka.util.ByteString
 import scala.concurrent.Future
 import scala.util.{Failure, Success}
 
-object FlowExamples extends App {
+object SimpleWebServer extends App {
 
 //  implicit val system = ActorSystem("Test1")
 //  implicit val materializer = ActorMaterializer()
