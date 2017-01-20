@@ -63,6 +63,6 @@ object WritePrimes {
   def isPrime(n: Int): Boolean = {
     if (n <= 1) false
     else if (n == 2) true
-    else !(2 to (n - 1)).exists(x => n % x == 0)
+    else !(2 until n).exists(x => n % x == 0)
   }
 }

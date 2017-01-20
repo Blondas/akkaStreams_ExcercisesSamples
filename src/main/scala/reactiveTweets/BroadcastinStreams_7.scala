@@ -1,0 +1,16 @@
+package reactiveTweets
+
+import akka.NotUsed
+import akka.actor.ActorSystem
+import akka.stream.ActorMaterializer
+import akka.stream.scaladsl.Source
+
+object BroadcastinStreams_7 extends App {
+  import DataModel._
+  implicit val system = ActorSystem("reactive-tweets")
+  implicit val materializer = ActorMaterializer()
+
+  // source
+  val tweets: Source[Tweet, NotUsed] = Source.repeat(sampleTweet).take(5)
+  val hashtags: Source[Hashtag, NotUsed] = tweets.mapConcat(_.hashtags.toList)
+}
